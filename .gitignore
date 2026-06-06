@@ -1,0 +1,12 @@
+# Dependencias PHP no usadas en Pages
+vendor/
+*.php
+
+# Basura de hosting
+.ftpquota
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor
+.vscode/settings.json

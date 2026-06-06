@@ -1,0 +1,6 @@
+# Redirigir www a raíz
+https://www.robotx.cl/* https://robotx.cl/:splat 301
+
+# Redirigir PHP legacy por si alguien tiene la URL guardada
+/process_robotx.php / 302
+/gracias.php /gracias.html 301
