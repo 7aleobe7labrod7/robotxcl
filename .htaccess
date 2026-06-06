@@ -1,0 +1,20 @@
+# ==============================================================================
+# OBED ECOSYSTEM - PROTOCOLO DE SEGURIDAD V1.1 (SPRINT 0)
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # 1. REDIRECCIÓN 301 ROBUSTA (Puerto 80 -> HTTPS)
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # 2. HSTS: Solo conexiones seguras por 1 año
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # 3. CABECERAS DE SEGURIDAD ADICIONALES
+    Header set X-Frame-Options "ALLOW-FROM https://alexlabbe.cl/
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
